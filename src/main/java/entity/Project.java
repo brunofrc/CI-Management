@@ -27,21 +27,21 @@ public class Project implements Serializable {
     private String nome;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Job.class)
-    @JoinColumn(name = "ID_PROJECT")
+    @JoinColumn(name = "ID_JOB")
     @JsonManagedReference
     private List<Job> jobs;
-/*
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Responsavel.class)
-    @JoinColumn(name = "COD_ESTEIRA_IC")
-    @JsonManagedReference
-    private Set<Responsavel> responsaveis;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Manager.class)
+    @JoinColumn(name = "ID_MANAGER")
+    @JsonManagedReference
+    private List<Manager> manager;
+/*
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Repositorio.class)
     @JoinColumn(name = "COD_ESTEIRA_IC")
     @JsonSerialize(using = SetSerializer.class)
     @FieldRequired(operations = { FieldRequiredOperation.SAVE_UPDATE })
     @FieldMin(min = 1)
-    private Set<Repositorio> repositorios;
+    private Set<Repository> repositorios;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Sonar.class)
     @JoinColumn(name = "COD_ESTEIRA_IC")
@@ -86,5 +86,13 @@ public class Project implements Serializable {
 
     public void setJobs(List<Job> jobs) {
         this.jobs = jobs;
+    }
+
+    public List<Manager> getManager() {
+        return manager;
+    }
+
+    public void setManager(List<Manager> manager) {
+        this.manager = manager;
     }
 }
