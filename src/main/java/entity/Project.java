@@ -35,21 +35,11 @@ public class Project implements Serializable {
     @JoinColumn(name = "ID_MANAGER")
     @JsonManagedReference
     private List<Manager> manager;
-/*
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Repositorio.class)
-    @JoinColumn(name = "COD_ESTEIRA_IC")
-    @JsonSerialize(using = SetSerializer.class)
-    @FieldRequired(operations = { FieldRequiredOperation.SAVE_UPDATE })
-    @FieldMin(min = 1)
-    private Set<Repository> repositorios;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Sonar.class)
-    @JoinColumn(name = "COD_ESTEIRA_IC")
-    @JsonSerialize(using = SetSerializer.class)
-    @FieldRequired(operations = { FieldRequiredOperation.SAVE_UPDATE })
-    @FieldMin(min = 1)
-    private Set<Sonar> sonares;
-*/
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Repository.class)
+    @JoinColumn(name = "ID_REPOSITORY")
+    @JsonManagedReference
+    private List<Repository> repositories;
 
     /**
      * Construtor Padrao.
