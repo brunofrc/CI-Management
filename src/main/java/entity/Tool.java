@@ -26,5 +26,27 @@ public class Tool implements Serializable {
     @JoinColumn(name = "ID", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "FK_TOOL_TOOLTYPE"))
     private ToolType toolType;
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ToolType getToolType() {
+        return toolType;
+    }
+
+    public void setToolType(ToolType toolType) {
+        this.toolType = toolType;
+    }
 }

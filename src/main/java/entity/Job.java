@@ -29,11 +29,10 @@ public class Job implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = JobType.class)
     @JoinColumn(name = "ID_JOB_TYPE", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "FK_JOB_JOB_TYPE"))
     private JobType jobType;
-/*
+
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = InstanceJenkins.class)
-    @JoinColumn(name = "ID_INSTANCE_JENKINS", nullable = true, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "FK_JOB_INSTANCE_JENKINS"))
+    @JoinColumn(name = "ID_INSTANCE_JENKINS", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "FK_JOB_INSTANCE_JENKINS"))
     private InstanceJenkins instanceJenkins;
-    */
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Project.class)
     @JoinColumn(name = "ID_PROJECT", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "FK_JOB_PROJECT"))
@@ -86,5 +85,13 @@ public class Job implements Serializable {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public InstanceJenkins getInstanceJenkins() {
+        return instanceJenkins;
+    }
+
+    public void setInstanceJenkins(InstanceJenkins instanceJenkins) {
+        this.instanceJenkins = instanceJenkins;
     }
 }
