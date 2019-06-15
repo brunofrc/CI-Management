@@ -15,7 +15,7 @@ public class Build {
     @Id
     @Column(name = "ID")
     @GeneratedValue(generator = "SQ_BUILD", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "SQ_BUILD", sequenceName = "SQ_BUILD", allocationSize = 1, initialValue = 1)
+    @SequenceGenerator(name = "SQ_BUILD", sequenceName = "SQ_BUILD", allocationSize = 1)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Job.class)
